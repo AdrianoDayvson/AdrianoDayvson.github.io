@@ -76,8 +76,8 @@
 
       var classicOptions = {
         title: 'Cargas Atuantes em um Navio [t/m]',
-        width: 700,
-        height: 500,
+        width: 550,
+        height: 350,
         vAxis: {
           viewWindow: {
             max: 300,
