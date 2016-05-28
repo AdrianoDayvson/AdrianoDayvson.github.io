@@ -1,5 +1,7 @@
+
       google.charts.load('current', {'packages':['line', 'corechart']});
       google.charts.setOnLoadCallback(drawChart);
+      google.setOnLoadCallback(drawChart);
 
     function drawChart() {
 
@@ -76,8 +78,6 @@
 
       var classicOptions = {
         title: 'Cargas Atuantes em um Navio [t/m]',
-        width: 550,
-        height: 350,
         vAxis: {
           viewWindow: {
             max: 300,
@@ -91,6 +91,8 @@
       };
 
         var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-
         chart.draw(data, classicOptions);
       }
+      $(window).resize(function(){
+        drawChart();
+      });
