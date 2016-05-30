@@ -105,3 +105,16 @@ $pad: 20px;
 .chart {
   height: 600px;
 }
+.flip{
+  -webkit-transform-style: preserve-3d;
+  -webkit-transition: 0.5s;
+  position: relative;
+}
+
+.flipped{
+  -webkit-transform: rotateY(180deg);
+}
+
+.frente, .tras {
+  -webkit-backface-visibility: hidden;
+  }

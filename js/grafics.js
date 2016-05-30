@@ -1,7 +1,6 @@
 
       google.charts.load('current', {'packages':['line', 'corechart']});
       google.charts.setOnLoadCallback(drawChart);
-      google.setOnLoadCallback(drawChart);
 
     function drawChart() {
 
@@ -93,6 +92,11 @@
         var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
         chart.draw(data, classicOptions);
       }
-      $(window).resize(function(){
+      window.onresize = (function(){
         drawChart();
       });
+
+  function rotateCard2(bt) {
+    var $card =  $(bt).closest('.flip').addClass('flipped');
+    console.log($card);
+  }
