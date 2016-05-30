@@ -1,4 +1,4 @@
-function rotateCard(btn) {
+function rotate_Card(btn) {
   var $card = $(btn).closest('.card-container');
   console.log($card);
   if ($card.hasClass('hover')) {

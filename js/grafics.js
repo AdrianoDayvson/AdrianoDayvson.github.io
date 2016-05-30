@@ -96,7 +96,13 @@
         drawChart();
       });
 
-  function rotateCard2(bt) {
-    var $card =  $(bt).closest('.flip').addClass('flipped');
+  function rotateCard(bt) {
+    var $card =  $(bt).closest('.card');
+    if ($card.hasClass('flipped')) {
+        $card.removeClass('flipped');
+    }
+    else {
+    $card.addClass('flipped');
+    }
     console.log($card);
-  }
+    }

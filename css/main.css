@@ -111,10 +111,55 @@ $pad: 20px;
   position: relative;
 }
 
-.flipped{
+.card.flipped .frente{
   -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY( 180deg );
+  -o-transform: rotateY( 180deg );
+    transform: rotateY( 180deg );
+}
+.card.flipped .frente2{
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY( 180deg );
+  -o-transform: rotateY( 180deg );
+    transform: rotateY( 180deg );
 }
 
-.frente, .tras {
+.card.flipped .tras{
+  position: absolute;
+  visibility: visible;
+}
+
+.card.flipped .tras2{
+  position: absolute;
+  left: 50%;
+  visibility: visible;
+}
+
+.frente, .tras, .frente2, .tras2{
   -webkit-backface-visibility: hidden;
   }
+
+.mdl-card.frente,.mdl-card.frente2{
+  z-index: 2;
+}
+
+.card:not(.flipped) .tras{
+  z-index: 1;
+  position: absolute;
+  overflow:hidden;
+  visibility: hidden;
+  -webkit-transform: rotateY(-180deg);
+  -moz-transform: rotateY(-180deg );
+  -o-transform: rotateY(-180deg );
+}
+
+.card:not(.flipped) .tras2{
+  z-index: 1;
+  position: absolute;
+  left: 50%;
+  overflow:hidden;
+  visibility: hidden;
+  -webkit-transform: rotateY(-180deg);
+  -moz-transform: rotateY(-180deg );
+  -o-transform: rotateY(-180deg );
+}
