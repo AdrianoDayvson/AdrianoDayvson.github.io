@@ -163,3 +163,11 @@ $pad: 20px;
   -moz-transform: rotateY(-180deg );
   -o-transform: rotateY(-180deg );
 }
+
+.cardships .mdl-card__title {
+  color: #fff;
+}
+
+.cardships .mdl-button {
+  color: #00BCD4;
+}
