@@ -55,3 +55,46 @@ function refreshCalcDisplay(sender){
     }
   }
 }
+
+function hiddenAllotherHome(sender){
+  $( ".cardshome" ).each(function() {
+      if ($( this ).hasClass('flipped')) {
+        $( this ).removeClass( "flipped");
+        console.log($(this));
+        }
+      else{
+        console.log($(this));
+      }
+
+  });
+  $( ".cardscourses" ).each(function() {
+      if ($( this ).hasClass('flipped')) {
+        console.log($(this));
+        }
+      else{
+        $( this ).addClass( "flipped");
+        console.log($(this));
+      }
+  });
+}
+
+function hiddenAllotherCourses(sender){
+  $( ".cardshome" ).each(function() {
+      if ($( this ).hasClass('flipped')) {
+        console.log($(this));
+        }
+      else{
+        $( this ).addClass( "flipped");
+        console.log($(this));
+      }
+  });
+  $( ".cardscourses" ).each(function() {
+      if ($( this ).hasClass('flipped')) {
+        $( this ).removeClass( "flipped");
+        console.log($(this));
+        }
+      else{
+        console.log($(this));
+      }
+  });
+}

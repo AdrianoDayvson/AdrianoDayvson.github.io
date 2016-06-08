@@ -84,11 +84,28 @@ $pad: 20px;
   -o-transform: rotateY( 180deg );
     transform: rotateY( 180deg );
 }
-.card.flipped .frente2{
-  -webkit-transform: rotateY(180deg);
-  -moz-transform: rotateY( 180deg );
-  -o-transform: rotateY( 180deg );
-    transform: rotateY( 180deg );
+
+
+.cardshome.flipped{
+visibility: hidden;
+}
+
+.cardshome:not(.flipped){
+
+  visibility: visible;
+}
+
+.cardscourses{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.cardscourses:not(.flipped){
+  visibility: visible;
+}
+.cardscourses.flipped{
+  visibility: hidden;
 }
 
 .card.flipped .tras{
