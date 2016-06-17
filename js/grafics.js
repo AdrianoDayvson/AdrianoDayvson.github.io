@@ -242,10 +242,6 @@
       var classicOptions = {
         title: 'Cargas Atuantes em um Navio [t/m]',
         vAxis: {
-          viewWindow: {
-            max: 150,
-            min: -150,
-          },
           title: 'Cargas [t/m]',
         },
           hAxis: {
@@ -253,18 +249,16 @@
             },
         series: {
           // Gives each series an axis name that matches the Y-axis below.
-          0: {axis: 'Cortante'},
-          1: {axis: 'Momento'}
+          0: {targetAxisIndex: 0},
+          1: {targetAxisIndex: 1}
           },
-        axes: {
         // Adds labels to each axis; they don't have to match the axis names.
-          y: {
-            Cortante: {label: 'Esforço Cortante [tf]'},
-            Momento: {label: 'Momento [tf.m]'}
-          }
-        },
+          vAxes: {
+            0: {title: 'Esforço Cortante [tf]'},
+            1: {title: 'Momento [tf.m]'}
+          },
       };
-        var materialChart = new google.charts.Line(document.getElementById('curve_chart2'));
+        var materialChart = new google.visualization.LineChart(document.getElementById('curve_chart2'));
         materialChart.draw(data, classicOptions);
       }
       window.onresize = (function(){
