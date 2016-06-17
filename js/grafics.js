@@ -2,6 +2,7 @@
       google.charts.load('current', {'packages':['line', 'corechart']});
       google.charts.setOnLoadCallback(drawChart);
       google.charts.setOnLoadCallback(drawChart2);
+      google.charts.setOnLoadCallback(drawChart3);
 
     function drawChart() {
       var data = new google.visualization.DataTable();
@@ -261,9 +262,100 @@
         var materialChart = new google.visualization.LineChart(document.getElementById('curve_chart2'));
         materialChart.draw(data, classicOptions);
       }
+  function drawChart3(){
+    var circle1y = [];
+    var circle1x = [];
+    var sigx = 30;
+    var sigy = 50;
+    var tauxy=10;
+    var sigma1 = 1/2*(sigx+sigy)+Math.sqrt((Math.pow((sigx-sigy)/2),2)+Math.pow(tauxy,2));
+    var sigma2 = 1/2*(sigx+sigy)-Math.sqrt((Math.pow((sigx-sigy)/2),2)+Math.pow(tauxy,2));
+    console.log(sigma1);
+    console.log(sigma2);
+    var raio=Math.abs(sigma1-sigma2);
+    for (i=0;i<51;i++){
+    circle1y[i]=raio*Math.cos(2*Math.PI*i/50);
+    circle1x[i]=(sigma1+raio/2)+raio*Math.sin(2*Math.PI*i/50);
+    }
+    var data = new google.visualization.DataTable();
+    data.addColumn('number', 'Tensão');
+    data.addColumn('number', '\u03C3\u03B8, \u03C4\u03B8');
+    data.addRows([
+    [circle1x[0],circle1y[0]],
+    [circle1x[1],circle1y[1]],
+    [circle1x[2],circle1y[2]],
+    [circle1x[3],circle1y[3]],
+    [circle1x[4],circle1y[4]],
+    [circle1x[5],circle1y[5]],
+    [circle1x[6],circle1y[6]],
+    [circle1x[7],circle1y[7]],
+    [circle1x[8],circle1y[8]],
+    [circle1x[9],circle1y[9]],
+    [circle1x[10],circle1y[10]],
+    [circle1x[11],circle1y[11]],
+    [circle1x[12],circle1y[12]],
+    [circle1x[13],circle1y[13]],
+    [circle1x[14],circle1y[14]],
+    [circle1x[15],circle1y[15]],
+    [circle1x[16],circle1y[16]],
+    [circle1x[17],circle1y[17]],
+    [circle1x[18],circle1y[18]],
+    [circle1x[19],circle1y[19]],
+    [circle1x[20],circle1y[20]],
+    [circle1x[21],circle1y[21]],
+    [circle1x[22],circle1y[22]],
+    [circle1x[23],circle1y[23]],
+    [circle1x[24],circle1y[24]],
+    [circle1x[25],circle1y[25]],
+    [circle1x[26],circle1y[26]],
+    [circle1x[27],circle1y[27]],
+    [circle1x[28],circle1y[28]],
+    [circle1x[29],circle1y[29]],
+    [circle1x[30],circle1y[30]],
+    [circle1x[31],circle1y[31]],
+    [circle1x[32],circle1y[32]],
+    [circle1x[33],circle1y[33]],
+    [circle1x[34],circle1y[34]],
+    [circle1x[35],circle1y[35]],
+    [circle1x[36],circle1y[36]],
+    [circle1x[37],circle1y[37]],
+    [circle1x[38],circle1y[38]],
+    [circle1x[39],circle1y[39]],
+    [circle1x[40],circle1y[40]],
+    [circle1x[41],circle1y[41]],
+    [circle1x[42],circle1y[42]],
+    [circle1x[43],circle1y[43]],
+    [circle1x[44],circle1y[44]],
+    [circle1x[45],circle1y[45]],
+    [circle1x[46],circle1y[46]],
+    [circle1x[47],circle1y[47]],
+    [circle1x[48],circle1y[48]],
+    [circle1x[49],circle1y[49]],
+    [circle1x[50],circle1y[50]],
+    [circle1x[0],circle1y[0]],
+    ]);
+     var classicOptions = {
+        title: 'Círculo de Mohr para um estado plano de tensões',
+        curveType: 'function',
+        vAxis: {
+          viewWindow: {
+            max: raio,
+            min: -raio,
+          },
+          title: '\u03C4',
+        },
+        hAxis:{
+          title:'\u03C3',
+        }
+      };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart3'));
+        chart.draw(data, classicOptions);
+      }
       window.onresize = (function(){
         drawChart();
         drawChart2();
+        drawChart3();
       });
 
 
