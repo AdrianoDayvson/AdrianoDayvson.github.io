@@ -265,31 +265,59 @@
   function drawChart3(){
     var circle1y = [];
     var circle1x = [];
-    var sigx = 30;
-    var sigy = 50;
+    var sigx = 50;
+    var sigy = -30;
     var tauxy=10;
-    var sigma1 = 1/2*(sigx+sigy)+Math.sqrt((Math.pow((sigx-sigy)/2),2)+Math.pow(tauxy,2));
-    var sigma2 = 1/2*(sigx+sigy)-Math.sqrt((Math.pow((sigx-sigy)/2),2)+Math.pow(tauxy,2));
+    var theta=30;
+    console.log((sigx-sigy)*Math.cos(2*theta*Math.PI/180)/2+tauxy*Math.sin(2*theta*Math.PI/180));
+    var sigma2 = (sigx+sigy)/2+Math.sqrt(Math.pow((sigx-sigy)/2,2)+Math.pow(tauxy,2));
+    var sigma1 = (sigx+sigy)/2-Math.sqrt(Math.pow((sigx-sigy)/2,2)+Math.pow(tauxy,2));
     console.log(sigma1);
     console.log(sigma2);
-    var raio=Math.abs(sigma1-sigma2);
-    var np = 720;
-    for (i=0;i<np+1;i++){
-    circle1y[i]=raio*Math.cos(2*Math.PI*i/np);
-    circle1x[i]=(sigma1+raio/2)+raio*Math.sin(2*Math.PI*i/np);
-    }
+    var raio=Math.abs((sigma1-sigma2)/2);
+    var np = 1800;
     var data = new google.visualization.DataTable();
-    data.addColumn('number', 'Tensão');
+    var data2 = new google.visualization.DataTable();
+    data.addColumn('number', '');
+    data.addColumn('number', '');
+    data.addColumn('number', '2\u03B8');
     data.addColumn('number', '\u03C3\u03B8, \u03C4\u03B8');
-    for (i=0;i<np+1;i++){
-      data.addRows([
-      [circle1x[i],circle1y[i]],
-      ]);
-    }
-    var theta=30;
+    data.addColumn('number', '\u03C3x, -\u03C4xy');
+    data.addColumn('number', '\u03C3y, \u03C4xy');
+    data.addColumn('number', '\u03C31');
+    data.addColumn('number', '\u03C32');
+    data.addColumn('number', '');
+    data.addColumn('number', '');
+    data.addColumn('number', '');
+    data.addColumn('number', '');
     var sigxt=(sigx+sigy)/2+(sigx-sigy)*Math.cos(2*theta*Math.PI/180)/2+tauxy*Math.sin(2*theta*Math.PI/180);
     var sigyt=(sigx+sigy)/2-(sigx-sigy)*Math.cos(2*theta*Math.PI/180)/2-tauxy*Math.sin(2*theta*Math.PI/180);
-    var tauxyt=-(sigx-sigy)*Math.sin(2*theta*Math.PI/180)/2-tauxy*Math.cos(2*theta*Math.PI/180);
+    var tauxyt=(sigx-sigy)*Math.sin(2*theta*Math.PI/180)/2-tauxy*Math.cos(2*theta*Math.PI/180);
+    console.log(sigxt);
+    console.log(tauxyt);
+    for (i=0;i<np+1;i++){
+      circle1y[i]=raio*Math.cos(2*Math.PI*i/np);
+      circle1x[i]=sigma1+raio*(1+Math.sin(2*Math.PI*i/np));
+      data.addRows([
+      [circle1x[i],circle1y[i],{},{},{},{},{},{},{},{},{},{}],
+      ]);
+    }
+    data.addRows([
+        [sigma1+raio,{},0,{},{},{},{},{},{},{},{},{}],
+        [sigxt,{},tauxyt,tauxyt,{},{},{},{},{},{},{},{}],
+        [sigx,{},{},{},-tauxy,{},{},{},{},{},{},{}],
+        [sigy,{},{},{},{},+tauxy,{},{},{},{},{},{}],
+        [sigma1,{},{},{},{},{},0,{},{},{},{},{}],
+        [sigma2,{},{},{},{},{},{},0,{},{},{},{}],
+        [sigx,{},{},{},{},{},{},{},-tauxy,{},{},{}],
+        [sigy,{},{},{},{},{},{},{},-tauxy,{},{},{}],
+        [sigy,{},{},{},{},{},{},{},{},-tauxy,{},{}],
+        [sigy,{},{},{},{},{},{},{},{},+tauxy,{},{}],
+        [sigma1,{},{},{},{},{},{},{},{},{},0,{}],
+        [sigy,{},{},{},{},{},{},{},{},{},-tauxy,{}],
+        [sigy,{},{},{},{},{},{},{},{},{},{},-tauxy],
+        [sigma2,{},{},{},{},{},{},{},{},{},{},0],
+        ]);
      var classicOptions = {
         title: 'Círculo de Mohr para um estado plano de tensões',
         curveType: 'function',
@@ -302,6 +330,20 @@
         },
         hAxis:{
           title:'\u03C3',
+        },
+        series:{
+          0: { pointShape: '', color:'black',visibleInLegend: false},
+          1: {visibleInLegend: false},
+          2:{ pointShape: 'diamond',pointSize: 10, color:'red'},
+          3:{ pointShape: 'square',pointSize: 10, color:'blue'},
+          4:{ pointShape: 'square',pointSize: 10, color:'blue'},
+          5:{ pointShape: 'circle',pointSize: 10, color:'green'},
+          6:{ pointShape: 'circle',pointSize: 10, color:'green'},
+          7:{lineDashStyle: [10, 2], color:'blue',visibleInLegend: false},
+          8:{lineDashStyle: [10, 2], color:'blue',visibleInLegend: false},
+          9:{lineDashStyle: [10, 2], color:'green',visibleInLegend: false},
+          10:{lineDashStyle: [10, 2], color:'green',visibleInLegend: false},
+
         }
       };
 
