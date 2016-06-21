@@ -2,7 +2,9 @@
       google.charts.load('current', {'packages':['line', 'corechart']});
       google.charts.setOnLoadCallback(drawChart);
       google.charts.setOnLoadCallback(drawChart2);
-      google.charts.setOnLoadCallback(drawChart3);
+      google.charts.setOnLoadCallback(function() {
+        drawChart3(30,50,10,30);
+        });
 
     function drawChart() {
       var data = new google.visualization.DataTable();
@@ -262,22 +264,14 @@
         var materialChart = new google.visualization.LineChart(document.getElementById('curve_chart2'));
         materialChart.draw(data, classicOptions);
       }
-  function drawChart3(){
+  function drawChart3(sigx,sigy,tauxy,theta){
     var circle1y = [];
     var circle1x = [];
-    var sigx = 50;
-    var sigy = -30;
-    var tauxy=10;
-    var theta=30;
-    console.log((sigx-sigy)*Math.cos(2*theta*Math.PI/180)/2+tauxy*Math.sin(2*theta*Math.PI/180));
     var sigma2 = (sigx+sigy)/2+Math.sqrt(Math.pow((sigx-sigy)/2,2)+Math.pow(tauxy,2));
     var sigma1 = (sigx+sigy)/2-Math.sqrt(Math.pow((sigx-sigy)/2,2)+Math.pow(tauxy,2));
-    console.log(sigma1);
-    console.log(sigma2);
     var raio=Math.abs((sigma1-sigma2)/2);
-    var np = 1800;
+    var np = 360;
     var data = new google.visualization.DataTable();
-    var data2 = new google.visualization.DataTable();
     data.addColumn('number', '');
     data.addColumn('number', '');
     data.addColumn('number', '2\u03B8');
@@ -293,8 +287,6 @@
     var sigxt=(sigx+sigy)/2+(sigx-sigy)*Math.cos(2*theta*Math.PI/180)/2+tauxy*Math.sin(2*theta*Math.PI/180);
     var sigyt=(sigx+sigy)/2-(sigx-sigy)*Math.cos(2*theta*Math.PI/180)/2-tauxy*Math.sin(2*theta*Math.PI/180);
     var tauxyt=(sigx-sigy)*Math.sin(2*theta*Math.PI/180)/2-tauxy*Math.cos(2*theta*Math.PI/180);
-    console.log(sigxt);
-    console.log(tauxyt);
     for (i=0;i<np+1;i++){
       circle1y[i]=raio*Math.cos(2*Math.PI*i/np);
       circle1x[i]=sigma1+raio*(1+Math.sin(2*Math.PI*i/np));
@@ -353,10 +345,18 @@
       window.onresize = (function(){
         drawChart();
         drawChart2();
-        drawChart3();
+        document.getElementById("mohrinp")
+        var sigx = $("#sigx").val();
+        var sigy = $("#sigy").val();
+        var tauxy = $("#tau").val();
+        var theta = $("#teta").val();
+        console.log(sigx);
+        if(sigx && sigy && tauxy && theta){
+          drawChart3(parseFloat(sigx),parseFloat(sigy),parseFloat(tauxy),parseFloat(theta));
+        }else{
+          drawChart3(30,50,10,30);
+        }
       });
-
-
 
   function rotateCard(bt) {
     var $card =  $(bt).closest('.card');

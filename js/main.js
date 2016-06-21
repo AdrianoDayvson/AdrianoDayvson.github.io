@@ -98,3 +98,13 @@ function hiddenAllotherCourses(sender){
       }
   });
 }
+
+$(".entrada" ).change(function(){
+  var sigx = $("#sigx").val();
+  var sigy = $("#sigy").val();
+  var tauxy = $("#tau").val();
+  var theta = $("#teta").val();
+  if(sigx && sigy && tauxy && theta){
+    drawChart3(parseFloat(sigx),parseFloat(sigy),parseFloat(tauxy),parseFloat(theta));
+  }
+});
