@@ -269,6 +269,12 @@
     var circle1x = [];
     var sigma2 = (sigx+sigy)/2+Math.sqrt(Math.pow((sigx-sigy)/2,2)+Math.pow(tauxy,2));
     var sigma1 = (sigx+sigy)/2-Math.sqrt(Math.pow((sigx-sigy)/2,2)+Math.pow(tauxy,2));
+    if (sigx==sigy) {
+      thetap=45;
+    }else{
+      var thetap=0.5*Math.atan(2*tauxy/(sigx-sigy))*180/Math.PI;
+    }
+    var taumax=(sigma2-sigma1)/2;
     var raio=Math.abs((sigma1-sigma2)/2);
     var np = 360;
     var data = new google.visualization.DataTable();
@@ -341,6 +347,13 @@
 
         var chart = new google.visualization.LineChart(document.getElementById('curve_chart3'));
         chart.draw(data, classicOptions);
+        document.getElementById("mohroutput").innerHTML = "&#963<sub>&#952</sub> = "
+        +sigxt.toFixed(2).toString()+", &#964<sub>&#952</sub> = "
+        +tauxyt.toFixed(2).toString()+", &#963<sub>1</sub> = "
+        +sigma1.toFixed(2).toString()+", &#963<sub>2</sub> = "
+        +sigma2.toFixed(2).toString()+", &#952<sub>p</sub> = "
+        +thetap.toFixed(2).toString()+", &#964<sub>max</sub> = "
+        +taumax.toFixed(2).toString();
       }
       window.onresize = (function(){
         drawChart();
