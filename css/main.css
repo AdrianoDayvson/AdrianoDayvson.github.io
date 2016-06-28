@@ -159,3 +159,17 @@ visibility: hidden;
 #textf{
   margin-left: 8.33%;
 }
+
+.scrolling{
+  overflow: scroll;
+  height: 100px;
+}
+
+#dicio{
+  height: 800px;
+}
+
+.mdl-data-table {
+  white-space: pre-wrap;
+}
+

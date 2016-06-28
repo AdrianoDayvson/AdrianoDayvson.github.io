@@ -381,3 +381,7 @@
     }
     console.log($card);
     }
+
+    function show(nr) {
+    document.getElementById("dicio").style.display="block";
+}
