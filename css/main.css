@@ -166,10 +166,13 @@ visibility: hidden;
 }
 
 #dicio{
-  height: 800px;
+  height: 900px;
 }
 
 .mdl-data-table {
   white-space: pre-wrap;
 }
 
+.space{
+  height: 50px;
+}

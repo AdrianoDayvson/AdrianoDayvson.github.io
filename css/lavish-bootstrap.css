@@ -1073,7 +1073,7 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.42857;
-  color: #18BC9B;
+  color: rgb(0,188,212);
   background-color: #FBFCFC; }
 
 input,
