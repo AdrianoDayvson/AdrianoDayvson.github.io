@@ -81,20 +81,16 @@ function hiddenAllotherHome(sender){
 function hiddenAllotherCourses(sender){
   $( ".cardshome" ).each(function() {
       if ($( this ).hasClass('flipped')) {
-        console.log($(this));
         }
       else{
         $( this ).addClass( "flipped");
-        console.log($(this));
       }
   });
   $( ".cardscourses" ).each(function() {
       if ($( this ).hasClass('flipped')) {
         $( this ).removeClass( "flipped");
-        console.log($(this));
         }
       else{
-        console.log($(this));
       }
   });
 }
@@ -109,6 +105,15 @@ $(".entrada" ).change(function(){
   }
 });
 
+$(".entrada1" ).change(function(){
+  var sigx1 = $("#sigx1").val();
+  var sigy1 = $("#sigy1").val();
+  var tauxy1 = $("#tau1").val();
+  var sige1 = $("#sige1").val();
+  if(sigx1 && sigy1 && tauxy1 && sige1){
+    drawChart4(parseFloat(sigx1),parseFloat(sigy1),parseFloat(tauxy1),parseFloat(sige1));
+  }
+});
 
 var $rows = $('#table tr');
 $('#search').keyup(function() {

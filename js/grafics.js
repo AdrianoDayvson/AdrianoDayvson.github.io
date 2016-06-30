@@ -5,7 +5,9 @@
       google.charts.setOnLoadCallback(function() {
         drawChart3(30,50,10,30);
         });
-
+      google.charts.setOnLoadCallback(function() {
+        drawChart4(100,60,40,235);
+        });
     function drawChart() {
       var data = new google.visualization.DataTable();
       data.addColumn('number', 'Posição Longitudinal');
@@ -355,6 +357,118 @@
         +thetap.toFixed(2).toString()+", &#964<sub>max</sub> = "
         +taumax.toFixed(2).toString();
       }
+
+  function drawChart4(sigx,sigy,tauxy,sige){
+    var circle1y = [];
+    var circle1x = [];
+    var theta=30;
+    var sigma2 = (sigx+sigy)/2+Math.sqrt(Math.pow((sigx-sigy)/2,2)+Math.pow(tauxy,2));
+    var sigma1 = (sigx+sigy)/2-Math.sqrt(Math.pow((sigx-sigy)/2,2)+Math.pow(tauxy,2));
+    if (sigx==sigy) {
+      thetap=45;
+    }else{
+      var thetap=0.5*Math.atan(2*tauxy/(sigx-sigy))*180/Math.PI;
+    }
+    var taumax=(sigma2-sigma1)/2;
+    var raio=Math.abs((sigma1-sigma2)/2);
+    var np = 50;
+    var data = new google.visualization.DataTable();
+    var roots;
+    var a;
+    var b;
+    var c;
+    data.addColumn('number', '');
+    data.addColumn('number', '');
+    data.addColumn('number', '\u03C31');
+    a=1;
+    for (i=0;i<np+1;i++){
+      circle1x[i]=i*sige/np;
+      b=-circle1x[i];
+      c=Math.pow(circle1x[i],2)-Math.pow(sige,2);
+      roots =-b/2/a+Math.pow(Math.pow(b,2)-4*a*c,0.5)/2/a;
+      circle1y[i]=roots;
+      data.addRows([
+      [circle1x[i],circle1y[i],{}],
+      ]);
+    }
+    for (i=1;i<np+1;i++){
+      circle1y[i]=sige-i*sige/np;
+      b=-circle1y[i];
+      c=Math.pow(circle1y[i],2)-Math.pow(sige,2);
+      roots =-b/2/a+Math.pow(Math.pow(b,2)-4*a*c,0.5)/2/a;
+      circle1x[i]=roots;
+      data.addRows([
+      [circle1x[i],circle1y[i],{}],
+      ]);
+    }
+    for (i=1;i<2*np+1;i++){
+      circle1x[i]=sige-i*sige/np;
+      b=-circle1x[i];
+      c=Math.pow(circle1x[i],2)-Math.pow(sige,2);
+      roots =-b/2/a-Math.pow(Math.pow(b,2)-4*a*c,0.5)/2/a;
+      circle1y[i]=roots;
+      data.addRows([
+      [circle1x[i],circle1y[i],{}],
+      ]);
+    }
+    for (i=1;i<np+1;i++){
+      circle1y[i]=-sige+i*sige/np;
+      b=-circle1y[i];
+      c=Math.pow(circle1y[i],2)-Math.pow(sige,2);
+      roots =-b/2/a-Math.pow(Math.pow(b,2)-4*a*c,0.5)/2/a;
+      circle1x[i]=roots;
+      data.addRows([
+      [circle1x[i],circle1y[i],{}],
+      ]);
+    }
+    for (i=1;i<2*np+1;i++){
+      circle1x[i]=-sige+i*sige/np;
+      b=-circle1x[i];
+      c=Math.pow(circle1x[i],2)-Math.pow(sige,2);
+      roots =-b/2/a+Math.pow(Math.pow(b,2)-4*a*c,0.5)/2/a;
+      circle1y[i]=roots;
+      data.addRows([
+      [circle1x[i],circle1y[i],{}],
+      ]);
+    };
+    data.addRows([
+      [sigma2,{},sigma1],
+      ]);
+        var strength;
+        if (sige>(Math.sqrt(Math.pow(sigma1,2)+Math.pow(sigma2,2)+sigma1*sigma2))){
+          strength = 'As tensões atuantes são menores que a tensão de escoamento do material! <i class="material-icons">sentiment_very_satisfied</i>';
+        }
+        else{
+          strength = strength = 'As tensões atuantes ultrapassaram a tensão de escoamento do material! <i class="material-icons">sentiment_very_dissatisfied</i>';
+        };
+     var classicOptions = {
+        title: 'Tensões de von Mises para um estado plano de tensões',
+        curveType: 'function',
+        vAxis: {
+          viewWindow: {
+            max: 1.5*sige,
+            min: -1.5*sige,
+          },
+          title: '\u03C31',
+        },
+        hAxis:{
+          title:'\u03C32',
+        },
+        series:{
+          0: { pointShape: '', color:'black',visibleInLegend: false},
+          1: {pointShape: 'diamond',pointSize: 10, color:'red',visibleInLegend: false},
+        }
+      };
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart4'));
+        chart.draw(data, classicOptions);
+        document.getElementById("critfalha").innerHTML = "&#963<sub>1</sub> = "
+        +sigma1.toFixed(2).toString()+", &#963<sub>2</sub> = "
+        +sigma2.toFixed(2).toString()+", &#963<sub>p</sub> = "
+        +thetap.toFixed(2).toString()+", &#964<sub>max</sub> = "
+        +taumax.toFixed(2).toString()+"<br />"+strength;
+      }
+
+
       window.onresize = (function(){
         drawChart();
         drawChart2();
@@ -363,11 +477,20 @@
         var sigy = $("#sigy").val();
         var tauxy = $("#tau").val();
         var theta = $("#teta").val();
-        console.log(sigx);
         if(sigx && sigy && tauxy && theta){
           drawChart3(parseFloat(sigx),parseFloat(sigy),parseFloat(tauxy),parseFloat(theta));
         }else{
           drawChart3(30,50,10,30);
+        }
+        document.getElementById("critinp")
+        var sigx1 = $("#sigx1").val();
+        var sigy1 = $("#sigy1").val();
+        var tauxy1 = $("#tau1").val();
+        var sige1 = $("#sige1").val();
+        if(sigx1 && sigy1 && tauxy1 && sige1){
+          drawChart3(parseFloat(sigx1),parseFloat(sigy1),parseFloat(tauxy1),parseFloat(sige1));
+        }else{
+          drawChart3(100,60,40,235);
         }
       });
 
