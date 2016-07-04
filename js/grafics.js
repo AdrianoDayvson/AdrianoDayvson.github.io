@@ -472,7 +472,7 @@
       window.onresize = (function(){
         drawChart();
         drawChart2();
-        document.getElementById("mohrinp")
+        document.getElementById("mohrinp");
         var sigx = $("#sigx").val();
         var sigy = $("#sigy").val();
         var tauxy = $("#tau").val();
@@ -482,7 +482,7 @@
         }else{
           drawChart3(30,50,10,30);
         }
-        document.getElementById("critinp")
+        document.getElementById("critinp");
         var sigx1 = $("#sigx1").val();
         var sigy1 = $("#sigy1").val();
         var tauxy1 = $("#tau1").val();

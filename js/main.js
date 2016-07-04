@@ -93,6 +93,8 @@ function hiddenAllotherCourses(sender){
       else{
       }
   });
+  $(".demo-drawer").attr('aria-hidden', 'true');
+  $(".demo-drawer").removeClass('is-visible');
 }
 
 $(".entrada" ).change(function(){
