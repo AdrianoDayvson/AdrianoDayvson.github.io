@@ -129,3 +129,42 @@ $('#search').keyup(function() {
         return !reg.test(text);
     }).hide();
 });
+
+
+$('#flambchapas').change(function() {
+  var tipo = $("#tipo").val();
+  var dima = $("#dima").val();
+  var dimb = $("#dimb").val();
+  var tf = $("#tf").val();
+  var ta = $("#ta").val();
+  var lf = $("#lf").val();
+  var la = $("#la").val();
+  var tchcol= $("#tchcol").val();
+  var ME = $("#ME").val();
+  var be=0.8*dimb;
+  var LN;
+  var I;
+  var sigef;
+  var bec;
+  var A1 = tf*lf;
+  var A2 = ta*la;
+  var A3;
+  var converg=1;
+  var siga;
+  if (dima && dimb && tf && ta && lf && la && tchcol) {
+    while (converg>0.001){
+        A3 = be*tchcol;
+        LN = (A1*(tchcol+la+tf/2)+A2*(tchcol+la/2)+A3*(tchcol/2))/(A1+A2+A3);
+        I = lf*Math.pow(tf,3)/12+A1*Math.pow(LN-tchcol-la-tf/2,2)+la*Math.pow(ta,3)/12
+        +A2*Math.pow(LN-tchcol-la/2,2)+lf*Math.pow(tf,3)/12+A3*Math.pow(LN-tchcol/2,2);
+        sigef=Math.pow(Math.PI,2)*ME*I/((A1+A2+A3)*dima);
+        bec=1.9*tchcol*Math.sqrt(ME/sigef);
+        converg=Math.abs(be-bec);
+        be = bec;
+    }
+    siga=((be*tchcol+(A1+A2))/(dimb*tchcol+(A1+A2)))*sigef;
+    console.log(siga);
+    document.getElementById("flamboutput").innerHTML = "&#963<sub>a</sub> = "
+        +be.toFixed(2).toString()+", b<sub>e</sub> = ";
+  }
+});

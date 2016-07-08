@@ -201,7 +201,7 @@
                   <div id="curve_chart2" class="chart"></div>
               </div>
               <div class="mdl-card__supporting-text">
-                <p>O efeito da carga resultante da massa total de um embarcação é reduzido pelo empuxo gerado pela água. Assim a carga atuante é igual a subtração destas duas e que é conhecida como carga líquida.</p>
+                <p>Com a carga líquida (NetLoad) podemos encontrar o esforço cortante simplesmente integrando a carga líquida ao longo do comprimento da embarcação, V = &#8747Qdx. Da mesma forma o momento pode ser encontrado através da integração do esforço cortante, M = &#8747Qdx. Em casos onde se possua a curva de peso e a curva de áreas da embarcação de forma discretizada, os métodos de integração numérica, Método dos Trapézios e Método de Simpson, podem ser utilizados para o cálculo do esforço cortante e momento respectivamente.</p>
               </div>
               <div class="mdl-card__actions mdl-card--border">
                 <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="https://www.google.com.br/search?q=ship+longitudinal+strength&oq=ship+longitud&aqs=chrome.5.69i57j0l5.7412j0j4&sourceid=chrome&ie=UTF-8" target="_blank">Read More</a>
@@ -283,7 +283,65 @@
                 <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="https://www.google.com.br/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=von%20mises%20stress" target="_blank">Read More</a>
                 </div>
             </div>
-          <!--CARD#05-Courses-->
+          <!--CARD#05 Courses-->
+            <div class="mdl-card mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-shadow--2dp flip frente">
+                <div class="mdl-card__title">
+                    <h1 class="mdl-card__title-text mdl-color-text--grey-600">Flambagem de Painéis Enrigecidos</h1>
+                </div>
+                <div id="flambchapas">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell--2-col" id="textf">
+                        <input class="mdl-textfield__input entrada1" type="text" id="dima" pattern="-?[0-9]*(\.[0-9]+)?">
+                        <label class="mdl-textfield__label" for="dima">a</label>
+                        <span class="mdl-textfield__error">Digite um número!</span>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell--2-col" id="textf">
+                        <input class="mdl-textfield__input entrada1" type="text" id="dimb" pattern="-?[0-9]*(\.[0-9]+)?">
+                        <label class="mdl-textfield__label" for="dimb">b</label>
+                        <span class="mdl-textfield__error">Digite um número!</span>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell--2-col" id="textf">
+                        <input class="mdl-textfield__input entrada1" type="text" id="tf" pattern="-?[0-9]*(\.[0-9]+)?">
+                        <label class="mdl-textfield__label" for="tf">t<sub>f</sub></label>
+                        <span class="mdl-textfield__error">Digite um número!</span>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell--2-col" id="textf">
+                        <input class="mdl-textfield__input entrada1" type="text" id="lf" pattern="-?[0-9]*(\.[0-9]+)?">
+                        <label class="mdl-textfield__label" for="lf">l<sub>f</sub></label>
+                        <span class="mdl-textfield__error">Digite um número!</span>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell--2-col" id="textf">
+                        <input class="mdl-textfield__input entrada1" type="text" id="ta" pattern="-?[0-9]*(\.[0-9]+)?">
+                        <label class="mdl-textfield__label" for="ta">t<sub>a</sub></label>
+                        <span class="mdl-textfield__error">Digite um número!</span>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell--2-col" id="textf">
+                        <input class="mdl-textfield__input entrada1" type="text" id="la" pattern="-?[0-9]*(\.[0-9]+)?">
+                        <label class="mdl-textfield__label" for="la">l<sub>a</sub></label>
+                        <span class="mdl-textfield__error">Digite um número!</span>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell--2-col" id="textf">
+                        <input class="mdl-textfield__input entrada1" type="text" id="tchcol" pattern="-?[0-9]*(\.[0-9]+)?">
+                        <label class="mdl-textfield__label" for="tchcol">t<sub>ch</sub></label>
+                        <span class="mdl-textfield__error">Digite um número!</span>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell--2-col" id="textf">
+                        <input class="mdl-textfield__input entrada1" type="text" id="ME" pattern="-?[0-9]*(\.[0-9]+)?">
+                        <label class="mdl-textfield__label" for="ME">E</label>
+                        <span class="mdl-textfield__error">Digite um número!</span>
+                    </div>
+                </div>
+                <div class="mdl-cell mdl-cell--12-col">
+                  <div></div>
+                </div>
+                <div class="mdl-card__supporting-text">
+                    <p style="color:#424242;" id="flamboutput"></p>
+                    <p>Flambagem.</p>
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="" target="_blank">Read More</a>
+                </div>
+            </div>
+          <!--CARD#06-Courses-->
             <div class= "mdl-card mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-shadow--2dp scrolling" id="dicio">
                 <div class="mdl-card__title pesq">
                     <h1 class="mdl-card__title-text mdl-color-text--grey-600">Dicionário Técnico</h1>
