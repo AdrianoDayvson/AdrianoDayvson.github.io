@@ -168,3 +168,15 @@ $('#flambchapas').change(function() {
         +be.toFixed(2).toString()+", b<sub>e</sub> = ";
   }
 });
+
+$(".estrutural1").click(function() {
+    console.log('entrou');
+    var zip = new JSZip();
+    zip.file("Hello.txt", "Hello World\n");
+    zip.generateAsync({type:"blob"})
+    .then(function(content) {
+        // see FileSaver.js
+            console.log('entrou2');
+        console.log(saveAs(content, "example.zip"));
+    });
+});
