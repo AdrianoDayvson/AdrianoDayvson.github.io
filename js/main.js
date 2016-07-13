@@ -169,14 +169,21 @@ $('#flambchapas').change(function() {
   }
 });
 
-$(".estrutural1").click(function() {
-    console.log('entrou');
-    var zip = new JSZip();
-    zip.file("Hello.txt", "Hello World\n");
-    zip.generateAsync({type:"blob"})
-    .then(function(content) {
-        // see FileSaver.js
-            console.log('entrou2');
-        console.log(saveAs(content, "example.zip"));
-    });
+$(".estrutural2").click(function() {
+    console.log((document.getElementById("chkbox5").checked==true));
+    console.log((document.getElementById("chkbox6").checked==true));
+    console.log((document.getElementById("chkbox7").checked==true));
+    console.log((document.getElementById("chkbox8").checked==true));
+    if (document.getElementById("chkbox5").checked==true){
+        document.getElementById("cb5").click();
+    }
+    if (document.getElementById("chkbox6").checked==true){
+        document.getElementById("cb6").click();
+    }
+    if (document.getElementById("chkbox7").checked==true){
+        document.getElementById("cb7").click();
+    }
+    if (document.getElementById("chkbox8").checked==true){
+        document.getElementById("cb8").click();
+    }
 });
