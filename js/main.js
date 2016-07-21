@@ -76,6 +76,16 @@ function hiddenAllotherHome(sender){
         console.log($(this));
       }
   });
+  $( ".cardsocial" ).each(function() {
+      if ($( this ).hasClass('flipped')) {
+        }
+      else{
+        $( this ).addClass( "flipped");
+      }
+  });
+  $(".demo-drawer").attr('aria-hidden', 'true');
+  $(".demo-drawer").removeClass('is-visible');
+  $(".mainspan").text('Home');
 }
 
 function hiddenAllotherCourses(sender){
@@ -93,8 +103,43 @@ function hiddenAllotherCourses(sender){
       else{
       }
   });
+  $( ".cardsocial" ).each(function() {
+      if ($( this ).hasClass('flipped')) {
+        }
+      else{
+        $( this ).addClass( "flipped");
+      }
+  });
   $(".demo-drawer").attr('aria-hidden', 'true');
   $(".demo-drawer").removeClass('is-visible');
+  $(".mainspan").text('Courses');
+}
+
+function hiddenAllotherSocial(sender){
+  $( ".cardshome" ).each(function() {
+      if ($( this ).hasClass('flipped')) {
+        }
+      else{
+        $( this ).addClass( "flipped");
+      }
+  });
+  $( ".cardscourses" ).each(function() {
+      if ($( this ).hasClass('flipped')) {
+        }
+      else{
+        $( this ).addClass( "flipped");
+      }
+  });
+  $( ".cardsocial" ).each(function() {
+      if ($( this ).hasClass('flipped')) {
+        $( this ).removeClass( "flipped");
+        }
+      else{
+      }
+  });
+  $(".demo-drawer").attr('aria-hidden', 'true');
+  $(".demo-drawer").removeClass('is-visible');
+  $(".mainspan").text('Social');
 }
 
 $(".entrada" ).change(function(){

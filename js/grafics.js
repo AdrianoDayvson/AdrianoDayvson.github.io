@@ -495,12 +495,12 @@
       });
 
   function rotateCard(bt) {
-    var $card =  $(bt).closest('.card');
-    if ($card.hasClass('flipped')) {
-        $card.removeClass('flipped');
+    var $card =  $(bt).closest('.cardsocial');
+    if ($card.hasClass('rotate')) {
+        $card.removeClass('rotate');
     }
     else {
-    $card.addClass('flipped');
+    $card.addClass('rotate');
     }
     console.log($card);
     }

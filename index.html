@@ -69,7 +69,7 @@
     <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
       <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
         <div class="mdl-layout__header-row">
-          <span class="mdl-layout-title">Home</span>
+          <span class="mdl-layout-title mainspan">Home</span>
           <div class="mdl-layout-spacer"></div>
           <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
             <i class="material-icons">more_vert</i>
@@ -83,7 +83,7 @@
       </header>
       <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
         <header class="demo-drawer-header">
-          <span style="margin-left: 20%;">
+          <span style="margin-left: 20%">
             <img src="images/main.png" class="demo-avatar">
           </span>
           <div class="demo-avatar-dropdown">
@@ -104,14 +104,15 @@
             href="#" onclick="hiddenAllotherCourses();return false;"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">directions_boat</i>Courses</a>
           <a class="mdl-navigation__link" id="proj"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">book</i>Academic Projects</a>
           <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">laptop_mac</i>Personal Projects</a>
-          <a class="mdl-navigation__link" href="social.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i>Social</a>
+          <a class="mdl-navigation__link" href="#" onclick="hiddenAllotherSocial();return false;"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i>Social</a>
           <div class="mdl-layout-spacer"></div>
           <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>
         </nav>
       </div>
       <main class="mdl-layout__content mdl-color--grey-100 mdl-grid">
+        <div class="cardshome mdl-layout__content mdl-color--grey-100 mdl-grid">
             <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet">
-                <div class=" mdl-card mdl-shadow--2dp mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
+                <div class=" mdl-card mdl-shadow--2dp mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop ">
                   <div class="mdl-card__media">
                     <img src="images/engnav.jpg" border="0" margin="0" width="100%">
                   </div>
@@ -173,7 +174,7 @@
                   </div>
                 </div>
             </div>
-
+        </div>
             <!--<div class="demo-separator mdl-cell--1-col"></div>-->
           <!--############################################################################-->
           <div class="cardscourses mdl-layout__content mdl-color--grey-100 mdl-grid flipped">
@@ -186,7 +187,7 @@
                   <div id="curve_chart" class="chart"></div>
               </div>
               <div class="mdl-card__supporting-text">
-                <p>O efeito da carga resultante da massa total de um embarcação é reduzido pelo empuxo gerado pela água. Assim a carga atuante, conhecida como carga líquida, é igual a soma destas da massa com o empuxo.</p>
+                <p>O efeito da carga resultante da massa total de um embarcação é reduzido pelo empuxo gerado pela água. Assim a carga atuante, conhecida como Carga Líquida (NetLoad), é igual a soma da massa com o empuxo.</p>
               </div>
               <div class="mdl-card__actions mdl-card--border">
                 <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="https://www.google.com.br/search?q=ship+longitudinal+strength&oq=ship+longitud&aqs=chrome.5.69i57j0l5.7412j0j4&sourceid=chrome&ie=UTF-8#q=structural+design+loads+hull" target="_blank">Read More</a>
@@ -201,7 +202,7 @@
                   <div id="curve_chart2" class="chart"></div>
               </div>
               <div class="mdl-card__supporting-text">
-                <p>Com a carga líquida (NetLoad) podemos encontrar o esforço cortante simplesmente integrando a carga líquida ao longo do comprimento da embarcação, V = &#8747Qdx. Da mesma forma o momento pode ser encontrado através da integração do esforço cortante, M = &#8747Qdx. Em casos onde se possua a curva de peso e a curva de áreas da embarcação de forma discretizada, os métodos de integração numérica, Método dos Trapézios e Método de Simpson, podem ser utilizados para o cálculo do esforço cortante e momento respectivamente.</p>
+                <p>Com a carga líquida podemos encontrar o esforço cortante simplesmente integrando a carga líquida ao longo do comprimento da embarcação, V = &#8747Qdx. Da mesma forma o momento pode ser encontrado através da integração do esforço cortante, M = &#8747Qdx. Em casos onde se possua a curva de peso e a curva de áreas da embarcação de forma discretizada, os métodos de integração numérica, Método dos Trapézios e Método de Simpson, podem ser utilizados para o cálculo do esforço cortante e momento respectivamente.</p>
               </div>
               <div class="mdl-card__actions mdl-card--border">
                 <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="https://www.google.com.br/search?q=ship+longitudinal+strength&oq=ship+longitud&aqs=chrome.5.69i57j0l5.7412j0j4&sourceid=chrome&ie=UTF-8" target="_blank">Read More</a>
@@ -5950,6 +5951,32 @@
                     <i class="material-icons">cloud_download</i>
                   </div>
                 </div>
+            </div>
+        </div>
+        <div class="cardsocial mdl-layout__content mdl-color--grey-100 mdl-grid flipped">
+           <div class="mdl-card mdl-cell mdl-cell--8-col mdl-cell--6-col-tablet mdl-shadow--2dp flip frente">
+              <div class="mdl-card__title">
+                    <p class="mdl-card__title-text mdl-color-text--blue-grey-900">Adriano Dayvson Marques Ferreira</p>
+              </div>
+              <div class="mdl-card__supporting-text">
+                <p align="center">Professor/Researcher at Federal University of Pernambuco (UFPE) <br> Department of Mechanical/Naval Engineering</p>
+                <p align="center">Experience <br> Atlântico Sul Shipyard (2011-2015) - Naval Architecture & Structural Design</p>
+                <p align="center">Areas of Interest <br>Structural Analysis, Finite Element Method, Machine Learning, Corroded Pipeline, Ship Structural Design, Financial Forecast</p>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+                <a href="http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4214305H6" class="mdl-button mdl-button--icon mdl-button--colored bt mdl-ripple-effect" target="_blank" id="lattes"><i class="material-icons">school</i></a>
+                <div class="mdl-tooltip" for="lattes">
+                     Currículo Lattes
+                </div>
+                <a href="https://plus.google.com/u/0/110834969479583478962" class="mdl-button mdl-button--icon mdl-button--colored bt mdl-ripple-effect" target="_blank" id="gog"><i class="fa fa-google-plus-official"></i></a>
+                <div class="mdl-tooltip" for="gog">
+                     Google +
+                </div>
+                <a href="mailto:adriano.mferrreira@ufpe.br" class="mdl-button mdl-button--icon mdl-button--colored bt mdl-ripple-effect" id="sde"><i class="material-icons">email</i></a>
+                <div class="mdl-tooltip" for="sde">
+                     Envia email se você possuir algum cliente instalado.
+                </div>
+              </div>
             </div>
         </div>
       </main>
