@@ -83,6 +83,13 @@ function hiddenAllotherHome(sender){
         $( this ).addClass( "flipped");
       }
   });
+  $( ".cardacadproj" ).each(function() {
+      if ($( this ).hasClass('flipped')) {
+        }
+      else{
+        $( this ).addClass( "flipped");
+      }
+  });
   $(".demo-drawer").attr('aria-hidden', 'true');
   $(".demo-drawer").removeClass('is-visible');
   $(".mainspan").text('Home');
@@ -104,6 +111,13 @@ function hiddenAllotherCourses(sender){
       }
   });
   $( ".cardsocial" ).each(function() {
+      if ($( this ).hasClass('flipped')) {
+        }
+      else{
+        $( this ).addClass( "flipped");
+      }
+  });
+  $( ".cardacadproj" ).each(function() {
       if ($( this ).hasClass('flipped')) {
         }
       else{
@@ -137,9 +151,50 @@ function hiddenAllotherSocial(sender){
       else{
       }
   });
+  $( ".cardacadproj" ).each(function() {
+      if ($( this ).hasClass('flipped')) {
+        }
+      else{
+        $( this ).addClass( "flipped");
+      }
+  });
   $(".demo-drawer").attr('aria-hidden', 'true');
   $(".demo-drawer").removeClass('is-visible');
   $(".mainspan").text('Social');
+}
+
+function hiddenAllotherAcadProj(sender){
+  $( ".cardshome" ).each(function() {
+      if ($( this ).hasClass('flipped')) {
+        }
+      else{
+        $( this ).addClass( "flipped");
+      }
+  });
+  $( ".cardscourses" ).each(function() {
+      if ($( this ).hasClass('flipped')) {
+        }
+      else{
+        $( this ).addClass( "flipped");
+      }
+  });
+  $( ".cardsocial" ).each(function() {
+      if ($( this ).hasClass('flipped')) {
+        }
+      else{
+        $( this ).addClass( "flipped");
+      }
+  });
+  $( ".cardacadproj" ).each(function() {
+      if ($( this ).hasClass('flipped')) {
+        $( this ).removeClass( "flipped");
+        }
+      else{
+      }
+  });
+  $(".demo-drawer").attr('aria-hidden', 'true');
+  $(".demo-drawer").removeClass('is-visible');
+  $(".mainspan").text('Academic Projects');
 }
 
 $(".entrada" ).change(function(){

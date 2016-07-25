@@ -82,16 +82,6 @@ $pad: 20px;
   position: relative;
 }
 
-
-.cardshome.flipped{
-  visibility: hidden;
-}
-
-
-.cardshome:not(.flipped){
-  visibility: visible;
-}
-
 .cardscourses{
   position: absolute;
   left: 0px;
@@ -104,6 +94,18 @@ $pad: 20px;
   top: 0px;
 }
 
+.cardacadproj{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.cardshome.flipped{
+  visibility: hidden;
+}
+.cardshome:not(.flipped){
+  visibility: visible;
+}
 .cardscourses:not(.flipped){
   visibility: visible;
 }
@@ -111,43 +113,18 @@ $pad: 20px;
   visibility: hidden;
 }
 
+.cardsocial:not(.flipped){
+  visibility: visible;
+}
 .cardsocial.flipped{
 visibility: hidden;
 }
-
-
-.cardsocial.rotate:not(.flipped)>.frente{
-  -webkit-transform: rotateY(180deg);
-  -moz-transform: rotateY( 180deg );
-  -o-transform: rotateY( 180deg );
-  transform: rotateY( 180deg );
-  visibility: hidden;
-  z-index: 1;
-
-}
-
-.cardsocial:not(.rotate):not(.flipped)>.tras{
-  visibility: hidden;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  -webkit-transform: rotateY(180deg);
-  -moz-transform: rotateY( 180deg );
-  -o-transform: rotateY( 180deg );
-  transform: rotateY( 180deg );
-  overflow: hidden;
-  z-index: 2;
-}
-
-.cardsocial.rotate:not(.flipped)>.tras{
-  overflow: hidden;
-  position: absolute;
-  top: 0px;
-  left: 0px;
+.cardacadproj:not(.flipped){
   visibility: visible;
 }
-
-
+.cardacadproj.flipped{
+visibility: hidden;
+}
 .card.flipped .tras2{
   position: absolute;
   left: 50%;
