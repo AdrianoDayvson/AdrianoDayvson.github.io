@@ -463,7 +463,7 @@
         chart.draw(data, classicOptions);
         document.getElementById("critfalha").innerHTML = "&#963<sub>1</sub> = "
         +sigma1.toFixed(2).toString()+", &#963<sub>2</sub> = "
-        +sigma2.toFixed(2).toString()+", &#963<sub>p</sub> = "
+        +sigma2.toFixed(2).toString()+", &#952<sub>p</sub> = "
         +thetap.toFixed(2).toString()+", &#964<sub>max</sub> = "
         +taumax.toFixed(2).toString()+"<br />"+strength;
       }
