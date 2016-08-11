@@ -299,3 +299,18 @@ $(".estrutural2").click(function() {
         document.getElementById("cb8").click();
     }
 });
+
+(function() {
+
+  window['counter'] = 0;
+  var snackbarContainer = document.querySelector('#toast-message');
+  var showToastButton = document.querySelector('#show-toast');
+  showToastButton.addEventListener('click', function() {
+    'use strict';
+    var data = {
+      message: 'Copyright 2016 - Adriano Dayvson Marques Ferreira. Todas as ferramentas presentes na página são para fins acadêmicos. O autor não se responsabiliza pelo uso de qualquer ferramenta ou informação contida no site.',
+      timeout: 8000,
+    };
+    snackbarContainer.MaterialSnackbar.showSnackbar(data);
+  });
+}());
