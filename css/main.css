@@ -178,3 +178,12 @@ visibility: hidden;
 .space{
   height: 50px;
 }
+
+@font-face {
+    font-family: IronMaiden;
+    src: url(iron-maiden.ttf);
+}
+
+.mainspan{
+  font-family: IronMaiden;
+}
