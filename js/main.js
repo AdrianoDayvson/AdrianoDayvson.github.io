@@ -263,9 +263,6 @@ $('#flambchapas').change(function() {
         converg=Math.abs(be-bec);
         be = bec;
     }
-    console.log(sigef);
-    console.log((be*tchcol+(A1+A2)));
-    console.log(dimb*tchcol+(A1+A2));
     siga=((be*tchcol+(A1+A2))/(2*dimb*tchcol+(A1+A2)))*sigef;
     document.getElementById("flamboutput").innerHTML = "&#963<sub>a</sub> = "
         +siga.toExponential(2).toString()+" Pa, b<sub>e</sub> = "+be.toExponential(2).toString()+" m";
