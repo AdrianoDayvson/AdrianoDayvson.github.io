@@ -241,7 +241,7 @@ $('#flambchapas').change(function() {
   var la = parseFloat($("#la").val());
   var tchcol= parseFloat($("#tchcol").val());
   var ME = parseFloat($("#ME").val());
-  var be=0.8*dimb;
+  var be=2*0.8*dimb;
   var LN;
   var I;
   var sigef;
@@ -256,14 +256,17 @@ $('#flambchapas').change(function() {
         A3 = be*tchcol;
         LN = (A1*(tchcol+la+tf/2)+A2*(tchcol+la/2)+A3*(tchcol/2))/(A1+A2+A3);
         console.log(LN);
-        I = lf*Math.pow(tf,3)/12+A1*Math.pow(LN-tchcol-la-tf/2,2)+la*Math.pow(ta,3)/12+A2*Math.pow(LN-tchcol-la/2,2)+lf*Math.pow(tf,3)/12+A3*Math.pow(LN-tchcol/2,2);
+        I = lf*Math.pow(tf,3)/12+A1*Math.pow(LN-tchcol-la-tf/2,2)+ta*Math.pow(la,3)/12+A2*Math.pow(LN-tchcol-la/2,2)+be*Math.pow(tchcol,3)/12+A3*Math.pow(LN-tchcol/2,2);
         console.log(I);
-        sigef=Math.pow(Math.PI,2)*ME*I/((A1+A2+A3)*dima);
+        sigef=Math.pow(Math.PI,2)*ME*I/((A1+A2+A3)*Math.pow(dima,2));
         bec=1.9*tchcol*Math.sqrt(ME/sigef);
         converg=Math.abs(be-bec);
         be = bec;
     }
-    siga=((be*tchcol+(A1+A2))/(dimb*tchcol+(A1+A2)))*sigef;
+    console.log(sigef);
+    console.log((be*tchcol+(A1+A2)));
+    console.log(dimb*tchcol+(A1+A2));
+    siga=((be*tchcol+(A1+A2))/(2*dimb*tchcol+(A1+A2)))*sigef;
     document.getElementById("flamboutput").innerHTML = "&#963<sub>a</sub> = "
         +siga.toExponential(2).toString()+" Pa, b<sub>e</sub> = "+be.toExponential(2).toString()+" m";
   }
