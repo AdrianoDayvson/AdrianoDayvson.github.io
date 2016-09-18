@@ -241,7 +241,7 @@ $('#flambchapas').change(function() {
   var la = parseFloat($("#la").val());
   var tchcol= parseFloat($("#tchcol").val());
   var ME = parseFloat($("#ME").val());
-  var be=2*0.8*dimb;
+  var be=0.8*dimb;
   var LN;
   var I;
   var sigef;
@@ -263,7 +263,13 @@ $('#flambchapas').change(function() {
         converg=Math.abs(be-bec);
         be = bec;
     }
-    siga=((be*tchcol+(A1+A2))/(2*dimb*tchcol+(A1+A2)))*sigef;
+    if (be<dimb){
+      siga=((be*tchcol+(A1+A2))/(dimb*tchcol+(A1+A2)))*sigef;
+    }
+    else{
+      A3 = dimb*tchcol;
+      siga=Math.pow(Math.PI,2)*ME*I/((A1+A2+A3)*Math.pow(dima,2));
+    }
     document.getElementById("flamboutput").innerHTML = "&#963<sub>a</sub> = "
         +siga.toExponential(2).toString()+" Pa, b<sub>e</sub> = "+be.toExponential(2).toString()+" m";
   }
